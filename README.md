@@ -1,2 +1,2 @@
-# AI-Summarisrt
-Scientific Paper Summatiser
+# AI-Summariser
+Scientific Paper Summariser
