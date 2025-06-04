@@ -256,7 +256,7 @@ class CloudAnalyzer:
         tokens_in  = int(len(content.split()) * 1.3)
         tokens_out = 600
         cost_est   = self._calculate_cost(tokens_in, tokens_out)
-        if cost_est > 100:  # p99 cost guard
+        if cost_est > 0.01:  # p99 cost guard
             raise RuntimeError("Query too large – would exceed $0.01 budget")
 
         # Build prompt
