@@ -237,10 +237,15 @@ class CloudAnalyzer:
         
         return False
     
-    def analyze_document(self, content: str, query: str | None = None) -> AnalysisResult:
+    def analyze_document(self, content: str, query: str | None = None) -> tuple[AnalysisResult, str]:
         """
         Call GPT-4o-mini with streaming, measure time until first token is received,
-        apply retry and cost cap ≤ $0.01 p99, and return a parsed AnalysisResult.
+        apply retry and cost cap ≤ $0.01 p99, and return a parsed ``AnalysisResult``
+        together with a short preview of the raw response.
+
+        Returns:
+            tuple[AnalysisResult, str]: The analysis result object and a preview
+            string of the generated text.
 
         Raises:
             RuntimeError – API not configured / cost-cap exceeded / irrecoverable API error
